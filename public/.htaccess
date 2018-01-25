@@ -1,0 +1,18 @@
+# Environment Variable - local, staging, production
+SetEnv LARAVEL_ENV production
+
+Options -MultiViews
+
+RewriteEngine On
+RewriteBase /dc-message
+
+# Redirect Trailing Slashes...
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Handle Front Controller...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+RedirectMatch 404 /\.git
+RedirectMatch 404 /\.gitignore
